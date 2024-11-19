@@ -35,7 +35,7 @@ namespace Client
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             string Result = "";
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {

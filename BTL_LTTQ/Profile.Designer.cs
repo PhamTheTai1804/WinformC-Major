@@ -15,6 +15,7 @@ namespace Client
         private Panel panelInfo;
         private Panel panelFriend;
         MaterialLabel LoginName,UserName,Birth,Location,Hobbys;
+        MaterialRaisedButton EditUserName,EditPassword;
         public void InitializeComponent()
         {
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -55,7 +56,7 @@ namespace Client
                 Location = new System.Drawing.Point(100, 275),
                 Font = new System.Drawing.Font("Roboto", 11),
                 Width = 150
-            };
+            };           
             panelInfo.Controls.Add(lblLoginName);
             LoginName = new MaterialLabel
             {

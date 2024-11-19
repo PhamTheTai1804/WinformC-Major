@@ -32,7 +32,7 @@ namespace Client
         public void FillInfo()
         {
             string Result = "";
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {
@@ -81,7 +81,7 @@ namespace Client
                 {
                     string[] infoCertain = s.Split(",");
                     Console.WriteLine(infoCertain[0] + " , " + infoCertain[1]);
-                    UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], false);
+                    UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], "3");
                     community.Location = new Point(p_x, 10);
                     p_x += 220;
                     panelFriend.Controls.Add(community);

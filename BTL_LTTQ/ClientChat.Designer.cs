@@ -54,6 +54,7 @@ namespace BTL_LTTQ
             textBoxChat.Name = "textBoxChat";
             textBoxChat.Size = new Size(906, 80);
             textBoxChat.TabIndex = 1;
+            textBoxChat.KeyPress += textBoxChat_KeyPress;
             // 
             // buttonSend
             // 

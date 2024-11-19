@@ -53,7 +53,7 @@ namespace Client
         }
         private void GetImageFromServer()
         {
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
 
             try
@@ -89,7 +89,7 @@ namespace Client
             string result = GlobalCache.SharedCache.GetOrAdd(key, () =>
             {
                 string serverResponse = "";
-                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
                 Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
 
                 try
@@ -143,7 +143,7 @@ namespace Client
             string Result = GlobalCache.SharedCache.GetOrAdd(key, () =>
             {
                 string serverResponce = "";
-                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
                 Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
                 try
                 {
@@ -167,7 +167,7 @@ namespace Client
             foreach (string item in RcmFriends)
             {
                 string[] InfoCertain = item.Split(',');
-                UserProfileCard community = new UserProfileCard(MyID, InfoCertain[0], InfoCertain[1], ImagesGetFromServer.Images[InfoCertain[0]], false);
+                UserProfileCard community = new UserProfileCard(MyID, InfoCertain[0], InfoCertain[1], ImagesGetFromServer.Images[InfoCertain[0]],"1");
                 community.Location = new Point(lct, 0);
                 lct += 220;
                 panelKNN.Controls.Add(community);
@@ -182,7 +182,7 @@ namespace Client
             string Result = GlobalCache.SharedCache.GetOrAdd(key, () =>
             {
                 string serverresponce = "";
-                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
                 Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
                 try
                 {
@@ -208,7 +208,7 @@ namespace Client
                 foreach (string FriendRequest in FriendRequests)
                 {
                     string[] infoCertain = FriendRequest.Split(',');
-                    UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], true);
+                    UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], "2");
                     community.Location = new Point(p_x, p_y);
                     p_x += 220;
                     if (p_x > panelNotifications.Width - 220) { p_x = 25; p_y += 330; }
@@ -223,7 +223,7 @@ namespace Client
             string Result = GlobalCache.SharedCache.GetOrAdd(key, () =>
             {
                 string serverResponce = "";
-                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
                 Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
                 try
                 {
@@ -249,7 +249,7 @@ namespace Client
             foreach (string s in info)
             {
                 string[] infoCertain = s.Split(",");
-                UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], false);
+                UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], "1");
                 community.Location = new Point(p_x, p_y);
                 p_x += 220;
                 if (p_x > panelAddFr.Width - 220) { p_x = 28; p_y += 330; }
@@ -282,7 +282,7 @@ namespace Client
         private void btnCommunity_Click(object sender, EventArgs e)
         {
             LoadAllUser();
-            LoadCommunityPage();
+            //LoadCommunityPage();
             panelNotifications.Visible = false;
             panelIndex.Visible = false;
             panelFr.Visible = true;
@@ -297,7 +297,7 @@ namespace Client
         }
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            UserProfileCard myprofile = new UserProfileCard(MyID, MyID, MyUserName, ImagesGetFromServer.Images[MyID], false);
+            UserProfileCard myprofile = new UserProfileCard(MyID, MyID, MyUserName, ImagesGetFromServer.Images[MyID], "3");
             Profile MyProfile=new Profile(myprofile,false);
             MyProfile.Show();
         }
@@ -365,7 +365,7 @@ namespace Client
             if (isTextBoxActive && e.KeyChar == (char)Keys.Enter)
             {
                 string Result = "";
-                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+                IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
                 Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
                 try
                 {
@@ -392,7 +392,7 @@ namespace Client
                     foreach (string s in info)
                     {
                         string[] infoCertain = s.Split(",");
-                        UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], false);
+                        UserProfileCard community = new UserProfileCard(MyID, infoCertain[0], infoCertain[1], ImagesGetFromServer.Images[infoCertain[0]], "1");
                         community.Location = new Point(p_x, p_y);
                         p_x += 220;
                         if (p_x > panelAddFr.Width - 220) { p_x = 28; p_y += 330; }

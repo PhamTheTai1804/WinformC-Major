@@ -79,7 +79,7 @@ namespace Client
         private bool CheckUserNameExist(string username)
         {
             string Result = "";
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {
@@ -102,7 +102,7 @@ namespace Client
         }
         private void SendRegisterToServer()
         {
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {
@@ -154,7 +154,7 @@ namespace Client
             // Kết hợp độ dài và dữ liệu để gửi
             byte[] dataToSend = headerBytes.Concat(lengthBytes).Concat(imageBytes).ToArray();
 
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {

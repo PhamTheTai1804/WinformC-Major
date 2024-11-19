@@ -11,7 +11,7 @@ public partial class UserProfileCard : UserControl
 {
     private string MyID;
     private string OwnerCardId;
-    public UserProfileCard(string myid, string uid, string username, Image avt, bool IsReceive)
+    public UserProfileCard(string myid, string uid, string username, Image avt,string type)
     {
         InitializeComponent();
         this.Avatar = avt;
@@ -22,10 +22,15 @@ public partial class UserProfileCard : UserControl
         // Cấu hình các thành phần
         usernameLabel.TextAlign = ContentAlignment.MiddleCenter;
 
-        if (!IsReceive) addFriendButton.Text = "Thêm bạn bè";
-        else
+        if (type=="1") addFriendButton.Text = "Thêm bạn bè";
+        else if(type=="2")
         {
             addFriendButton.Text = "Chấp nhận";
+        }
+        else
+        {
+            addFriendButton.Text = "Đã Là Bạn Bè";
+            addFriendButton.Enabled = false;
         }
         MyID = myid;
         OwnerCardId = uid;
@@ -68,7 +73,7 @@ public partial class UserProfileCard : UserControl
         if (addFriendButton.Text == "Chấp nhận")
         {
             string Result = "";
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {
@@ -92,7 +97,7 @@ public partial class UserProfileCard : UserControl
         }
         else
         {
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {

@@ -18,7 +18,7 @@ namespace BTL_LTTQ
         string MyID;
         string status;
         private int currentYPosition = 0;
-        public static Dictionary<string, Image> ImagesMessage ;
+        public static Dictionary<string, Image> ImagesMessage;
         private List<Image> ImageList;
         public ClientChat(string myid, string uID, string stt)
         {
@@ -38,7 +38,7 @@ namespace BTL_LTTQ
 
         public void Connect()
         {
-            IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {
@@ -52,7 +52,7 @@ namespace BTL_LTTQ
                 int i = 0;
                 foreach (var image in ImageList)
                 {
-                    ImagesMessage["IMG"+i] = image;
+                    ImagesMessage["IMG" + i] = image;
                     i++;
                 }
                 string message = "#LoadH" + MyID + FrID + status;
@@ -61,7 +61,7 @@ namespace BTL_LTTQ
                 byte[] dataReturn = new byte[1024 * 1000];
                 int bytesRead = client.Receive(dataReturn);
                 status = "0";
-                LoadOldMessage(Encoding.UTF8.GetString(dataReturn, 0, bytesRead));               
+                LoadOldMessage(Encoding.UTF8.GetString(dataReturn, 0, bytesRead));
             }
             catch
             {
@@ -91,7 +91,7 @@ namespace BTL_LTTQ
         }
         public void SendImage()
         {
-            string header = "#SNDIMAGE" + MyID+FrID;
+            string header = "#SNDIMAGE" + MyID + FrID;
             // Thêm padding để đủ độ dài cho tên người dùng
             byte[] headerBytes = Encoding.UTF8.GetBytes(header);
             byte[] imageBytes = File.ReadAllBytes(openFileDialogImage.FileName);
@@ -103,7 +103,7 @@ namespace BTL_LTTQ
             // Kết hợp độ dài và dữ liệu để gửi
             byte[] dataToSend = headerBytes.Concat(lengthBytes).Concat(imageBytes).ToArray();
 
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             try
             {
@@ -142,15 +142,15 @@ namespace BTL_LTTQ
                     string headerPeek = Encoding.UTF8.GetString(bufferPeek.Take(3).ToArray());
                     if (headerPeek == "IMG")
                     {
-                        
+
                         byte[] headerBytes = new byte[3];
                         int receivedHeaderBytes = client.Receive(headerBytes);
-                        
+
                         if (receivedHeaderBytes < 3) continue;
 
                         byte[] lengthBytes = new byte[4];
                         int receivedLengthBytes = client.Receive(lengthBytes);
-                        
+
                         if (receivedLengthBytes < 4) continue;
 
                         int totalLength = BitConverter.ToInt32(lengthBytes, 0) - 3;
@@ -235,9 +235,9 @@ namespace BTL_LTTQ
         {
             PictureBox pictureBox = new PictureBox();
             pictureBox.Image = img;
-            pictureBox.Size = new Size(500,300);
+            pictureBox.Size = new Size(500, 300);
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
- 
+
             pictureBox.Location = new Point(ContainerChat.Width - pictureBox.Width - 22, currentYPosition + ContainerChat.AutoScrollPosition.Y);
             ContainerChat.Controls.Add(pictureBox);
             ContainerChat.VerticalScroll.Value = ContainerChat.VerticalScroll.Maximum;
@@ -294,7 +294,7 @@ namespace BTL_LTTQ
                 {
                     if (split[1] == MyID) AddSentMessage(split[0]);
                     else AddReceivedMessage(split[0]);
-                }                
+                }
             }
         }
 
@@ -344,7 +344,7 @@ namespace BTL_LTTQ
         }
         private void GetImageFromServer()
         {
-            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9998);
+            IPEndPoint IP = new IPEndPoint(IPAddress.Parse("192.168.26.149"), 9998);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
 
             try
@@ -352,7 +352,7 @@ namespace BTL_LTTQ
                 client.Connect(IP);
                 ImageList = ReceiveImages(client);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);//MessageBox.Show("Can't connect to server!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -370,6 +370,16 @@ namespace BTL_LTTQ
                 i++;
             }
 
+        }
+
+
+        private void textBoxChat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                buttonSend.PerformClick();
+            }
         }
     }
 }
