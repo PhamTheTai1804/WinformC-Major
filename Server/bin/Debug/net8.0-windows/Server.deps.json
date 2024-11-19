@@ -114,7 +114,10 @@
           "System.Data.SqlClient": "4.8.6"
         },
         "runtime": {
-          "Client.dll": {}
+          "Client.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

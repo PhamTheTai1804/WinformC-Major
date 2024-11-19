@@ -36,6 +36,7 @@ namespace BTL_LTTQ
             buttonSend = new Button();
             btnSendImage = new Button();
             openFileDialogImage = new OpenFileDialog();
+            btnGameRPS = new Button();
             SuspendLayout();
             // 
             // ContainerChat
@@ -43,7 +44,7 @@ namespace BTL_LTTQ
             ContainerChat.AutoScroll = true;
             ContainerChat.Location = new Point(31, 27);
             ContainerChat.Name = "ContainerChat";
-            ContainerChat.Size = new Size(1200, 705);
+            ContainerChat.Size = new Size(1200, 665);
             ContainerChat.TabIndex = 0;
             // 
             // textBoxChat
@@ -83,11 +84,22 @@ namespace BTL_LTTQ
             // 
             openFileDialogImage.FileName = "openFileDialog1";
             // 
+            // btnGameRPS
+            // 
+            btnGameRPS.Location = new Point(31, 698);
+            btnGameRPS.Name = "btnGameRPS";
+            btnGameRPS.Size = new Size(156, 34);
+            btnGameRPS.TabIndex = 4;
+            btnGameRPS.Text = "Rock Paper Scissors";
+            btnGameRPS.UseVisualStyleBackColor = true;
+            btnGameRPS.Click += btnGameRPS_Click;
+            // 
             // ClientChat
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 853);
+            Controls.Add(btnGameRPS);
             Controls.Add(btnSendImage);
             Controls.Add(buttonSend);
             Controls.Add(textBoxChat);
@@ -104,5 +116,6 @@ namespace BTL_LTTQ
         private Button buttonSend;
         private Button btnSendImage;
         private OpenFileDialog openFileDialogImage;
+        private Button btnGameRPS;
     }
 }

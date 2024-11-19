@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\Server\\Server.csproj": {}
+    "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\Server\\Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\Client.csproj": {
+    "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\Client.csproj",
+        "projectUniqueName": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\Client.csproj",
-        "packagesPath": "C:\\Users\\theta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\obj\\",
+        "projectPath": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\Client.csproj",
+        "packagesPath": "C:\\Users\\HuyPham\\.nuget\\packages\\",
+        "outputPath": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\theta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HuyPham\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,21 +78,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\Server\\Server.csproj": {
+    "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\Server\\Server.csproj",
+        "projectUniqueName": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\Server\\Server.csproj",
-        "packagesPath": "C:\\Users\\theta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\Server\\obj\\",
+        "projectPath": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\Server\\Server.csproj",
+        "packagesPath": "C:\\Users\\HuyPham\\.nuget\\packages\\",
+        "outputPath": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\theta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HuyPham\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -107,8 +107,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\Client.csproj": {
-                "projectPath": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\Client.csproj"
+              "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\Client.csproj": {
+                "projectPath": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\Client.csproj"
               }
             }
           }
@@ -156,7 +156,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

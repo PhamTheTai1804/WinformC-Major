@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Client;
 using Client.Classes;
 using Client.Properties;
 namespace BTL_LTTQ
@@ -178,7 +179,14 @@ namespace BTL_LTTQ
                         byte[] data = new byte[1024 * 5000];
                         int bytesRead = client.Receive(data);
                         string message = Encoding.UTF8.GetString(data, 0, bytesRead);
-
+                        if (message.StartsWith("#GAME_RPS"))
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                HandleGameRPSMessage(message);
+                            });
+                            continue;
+                        }
                         this.Invoke((MethodInvoker)delegate
                         {
                             AddReceivedMessage(message);
@@ -189,6 +197,75 @@ namespace BTL_LTTQ
             catch
             {
                 Disconnect();
+            }
+        }
+
+        private void btnGameRPS_Click(object sender, EventArgs e)
+        {
+            SendGameRPSInvite();
+        }
+
+        private void SendGameRPSInvite()
+        {
+            try
+            {
+                string invite = $"#GAME_RPS_INVITE:{MyID}:{FrID}";
+                byte[] data = Encoding.UTF8.GetBytes(invite);
+                client.Send(data);
+                AddSentMessage($"Da gui loi moi cho {FrID}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending game invite: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void HandleGameRPSMessage(string message)
+        {
+            try
+            {
+                if (message.StartsWith("#GAME_RPS_INVITE"))
+                {
+                    string senderId = message.Split(':')[1];
+
+                    DialogResult result = MessageBox.Show(
+                        $"Ban be {senderId} moi ban choi game Keo Bua Bao",
+                        "Loi moi choi Keo Bua Bao",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        string accept = $"#GAME_RPS_ACCEPT:{MyID}:{senderId}";
+                        byte[] data = Encoding.UTF8.GetBytes(accept);
+                        client.Send(data);
+                        AddSentMessage("Chap nhan loi moi");
+                    }
+                    else
+                    {
+                        AddSentMessage("Tu choi loi moi");
+                    }
+
+                }
+                else if (message.StartsWith("#GAME_RPS_START"))
+                {
+
+                    GameRPS game = new GameRPS(client, MyID, FrID);
+                    game.FormClosed += (s, args) =>
+                    {
+
+                    };
+
+                    game.Show();
+                    AddSentMessage("Tro choi RPS bat dau");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error handling game message: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -173,7 +173,16 @@ namespace Server
                         byte[] data = new byte[1024 * 5000];
                         int bytesRead = client.Receive(data);
                         string message = Encoding.UTF8.GetString(data, 0, bytesRead);
-                   
+
+                        // Game Rock Paper Scissors
+                        if (message.StartsWith("#GAME_RPS"))
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                HandleGameRPSMessage(client, message);
+                            });
+                        }
+
                         //Request Login
                         if (message.Substring(0, 6) == "#Login")
                         {
@@ -306,6 +315,65 @@ namespace Server
             {
 
                 client.Close();
+            }
+        }
+
+        private void HandleGameRPSMessage(Socket sender, string message)
+        {
+            try
+            {
+                string[] parts = message.Split(':');
+                if (parts.Length < 3)
+                {
+                    Console.WriteLine("[Server] Invalid message format");
+                    return;
+                }
+
+                string command = parts[0];
+                string senderId = parts[1];
+                string targetId = parts[2];
+
+                // Đảm bảo người nhận tồn tại
+                if (!clients.ContainsKey(targetId))
+                {
+                    Console.WriteLine($"[Server] Target client {targetId} not found");
+                    return;
+                }
+
+                Socket targetClient = clients[targetId];
+
+                switch (command)
+                {
+                    case "#GAME_RPS_INVITE":
+                        // Chuyen tiep loi moi den nguoi nhan
+                        Send(targetClient, $"#GAME_RPS_INVITE:{senderId}");
+                        break;
+
+                    case "#GAME_RPS_ACCEPT":
+                        // Gui thong bao bat dau game cho 2 nguoi choi
+                        Send(clients[targetId], "#GAME_RPS_START:1");
+                        Send(sender, "#GAME_RPS_START:2");
+                        break;
+
+                    case "#GAME_RPS_MOVE":
+                        // Chuyen tiep nuoc di den nguoi nhan
+                        if (parts.Length < 4)
+                        {
+                            Console.WriteLine("[Server] Invalid move message format");
+                            return;
+                        }
+
+                        Send(targetClient, message);
+                        break;
+
+                    case "#GAME_RPS_RESULT":
+                        Send(targetClient, message);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error handling game message: {ex.Message}");
             }
         }
 

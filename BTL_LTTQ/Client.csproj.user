@@ -7,6 +7,9 @@
     <Compile Update="ClientIndex.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GameRPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

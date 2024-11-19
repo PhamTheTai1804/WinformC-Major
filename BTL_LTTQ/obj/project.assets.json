@@ -536,19 +536,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\theta\\.nuget\\packages\\": {}
+    "C:\\Users\\HuyPham\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\Client.csproj",
+      "projectUniqueName": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\Client.csproj",
       "projectName": "Client",
-      "projectPath": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\Client.csproj",
-      "packagesPath": "C:\\Users\\theta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\theta\\source\\repos\\BTL_LTTQ\\BTL_LTTQ\\obj\\",
+      "projectPath": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\Client.csproj",
+      "packagesPath": "C:\\Users\\HuyPham\\.nuget\\packages\\",
+      "outputPath": "D:\\programing\\baitap\\laptrinhtrucquan\\btlv.04\\BTL_LTTQ\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\theta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HuyPham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -612,7 +612,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
