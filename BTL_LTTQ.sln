@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "BTL_LTTQ\Client.csproj", "{ECE420B7-90D9-443D-9992-6C8A0358C2D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{75EAF4F7-A231-452A-99AC-4F36C92FAB4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECE420B7-90D9-443D-9992-6C8A0358C2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE420B7-90D9-443D-9992-6C8A0358C2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE420B7-90D9-443D-9992-6C8A0358C2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE420B7-90D9-443D-9992-6C8A0358C2D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75EAF4F7-A231-452A-99AC-4F36C92FAB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75EAF4F7-A231-452A-99AC-4F36C92FAB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75EAF4F7-A231-452A-99AC-4F36C92FAB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75EAF4F7-A231-452A-99AC-4F36C92FAB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {503F8C49-D246-4D7C-A760-62FCBD05CF52}
+	EndGlobalSection
+EndGlobal
