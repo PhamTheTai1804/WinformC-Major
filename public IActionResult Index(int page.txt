@@ -1,0 +1,20 @@
+public IActionResult Index(int? page)
+{
+    int pageSize = 8;
+    int pageNumber = page == null || page < 0 ? 1 : page.Value;
+    List<TSach> list = db.TSaches.ToList();
+    PagedList<TSach> lst = new PagedList<TSach>(list, pageNumber, pageSize);
+    return View(lst);
+}
+
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions()
+	{
+		LiElementClasses = new[] { "page-item" },
+		PageClasses = new[] { "page-link" }
+	})
+
+
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<kiemtra.Models.TSach>

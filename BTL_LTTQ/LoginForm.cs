@@ -22,6 +22,7 @@ namespace Client
         public LoginForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             if (Properties.Settings.Default.IsRemembered)
             {
 

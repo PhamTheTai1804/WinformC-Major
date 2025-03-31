@@ -27,6 +27,7 @@ namespace BTL_LTTQ
             status = stt;
             CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             this.Location = new Point(300, 50);
 
@@ -108,7 +109,7 @@ namespace BTL_LTTQ
             try
             {
                 client.Connect(IP);
-
+                
                 // Gửi dữ liệu trong vòng lặp
                 int bytesSent = 0;
                 while (bytesSent < dataToSend.Length)

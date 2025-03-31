@@ -28,7 +28,7 @@ namespace Client
         public ClientIndex(string id_name)
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.Manual;
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.Location = new Point(300, 50);
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -282,7 +282,7 @@ namespace Client
         private void btnCommunity_Click(object sender, EventArgs e)
         {
             LoadAllUser();
-            //LoadCommunityPage();
+            LoadCommunityPage();
             panelNotifications.Visible = false;
             panelIndex.Visible = false;
             panelFr.Visible = true;

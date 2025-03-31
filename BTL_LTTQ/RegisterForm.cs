@@ -23,7 +23,7 @@ namespace Client
         public RegisterForm()
         {
             InitializeComponent();
-
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void btnRegister_Click(object sender, EventArgs e)
         {
